@@ -6,3 +6,11 @@
 - oswojenie się z podejściem TDD
 - konfiguracja PHPUnit
 - rozwiązanie katy *FizzBuzz* (branch `FizzBuzz`)
+
+# Tydzień 3. (17 – 23 III)
+*brak postępów*
+
+# Tydzień 4. (24 III - 31 III)
+- utworzenie encji Task wraz Fixtures i widokami dla niej
+- konfiguracja paginacji
+- rozpoczęcie tworzenia testów dla TaskController
