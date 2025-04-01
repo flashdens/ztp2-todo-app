@@ -17,7 +17,7 @@ use Faker\Generator;
 /**
  * Class TaskFixtures.
  */
-class TaskFixtures extends Fixture
+class TaskFixtures extends AbstractBaseFixtures
 {
     /**
      * Faker.
@@ -31,10 +31,8 @@ class TaskFixtures extends Fixture
 
     /**
      * Load.
-     *
-     * @param ObjectManager $manager Persistence object manager
      */
-    public function load(ObjectManager $manager): void
+    public function loadData( ): void
     {
         $this->faker = Factory::create();
 
@@ -47,9 +45,9 @@ class TaskFixtures extends Fixture
             $task->setUpdatedAt(
                 ($this->faker->dateTimeBetween('-100 days', '-1 days'))
             );
-            $manager->persist($task);
+            $this->manager->persist($task);
         }
 
-        $manager->flush();
+        $this->manager->flush();
     }
 }
