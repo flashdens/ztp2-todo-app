@@ -17,7 +17,9 @@
         "symfony/runtime": "6.4.*",
         "symfony/translation": "6.4.*",
         "symfony/twig-bundle": "6.4.*",
-        "symfony/yaml": "6.4.*"
+        "symfony/yaml": "6.4.*",
+        "twig/extra-bundle": "^3.20",
+        "twig/intl-extra": "^3.20"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^8.3",
@@ -70,6 +72,13 @@
             "@auto-scripts"
         ],
         "init-app" : [
+            "./bin/console --no-interaction doctrine:migrations:migrate",
+            "./bin/console --no-interaction doctrine:fixtures:load"
+        ],
+        "mig" : [
+            "rm -rf migrations/*",
+            "./bin/console --no-interaction doctrine:schema:drop --force",
+            "./bin/console --no-interaction make:migration",
             "./bin/console --no-interaction doctrine:migrations:migrate",
             "./bin/console --no-interaction doctrine:fixtures:load"
         ]

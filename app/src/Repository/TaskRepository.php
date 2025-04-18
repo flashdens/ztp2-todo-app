@@ -27,7 +27,7 @@ class TaskRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE = 10;
+    public const PAGINATOR_ITEMS_PER_PAGE = 3;
 
     /**
      * Constructor.
@@ -46,6 +46,8 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function queryAll(): QueryBuilder
     {
-        return $this->createQueryBuilder('task');
+        return $this->createQueryBuilder('task')
+            ->select('task', 'category')
+            ->join('task.category', 'category');
     }
 }
