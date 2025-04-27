@@ -7,12 +7,13 @@
 namespace App\Controller;
 
 use App\Entity\Task;
-use App\Service\TaskService;
+use App\Service\TaskServiceInterface;
+use App\Repository\TaskRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
-
 /**
  * Class TaskController.
  */
@@ -22,9 +23,10 @@ class TaskController extends AbstractController
     /**
      * Constructor.
      *
-     * @param TaskService $taskService Task service
+     * @param TaskRepository     $taskRepository Task repository
+     * @param PaginatorInterface $paginator      Paginator
      */
-    public function __construct(private readonly TaskService $taskService)
+    public function __construct(private readonly TaskServiceInterface $taskService, private readonly PaginatorInterface $paginator)
     {
     }
 
@@ -42,7 +44,6 @@ class TaskController extends AbstractController
     public function index(#[MapQueryParameter] int $page = 1): Response
     {
         $pagination = $this->taskService->getPaginatedList($page);
-
         return $this->render('task/index.html.twig', ['pagination' => $pagination]);
     }
 

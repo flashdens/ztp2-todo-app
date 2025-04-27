@@ -13,7 +13,7 @@ use Knp\Component\Pager\PaginatorInterface;
 /**
  * Class TaskService.
  */
-class TaskService
+class TaskService implements TaskServiceInterface
 {
     /**
      * Items per page.
@@ -24,7 +24,7 @@ class TaskService
      *
      * @constant int
      */
-    private const PAGINATOR_ITEMS_PER_PAGE = 10;
+    private const PAGINATOR_ITEMS_PER_PAGE = 3;
 
     /**
      * Constructor.
@@ -50,7 +50,7 @@ class TaskService
             $page,
             self::PAGINATOR_ITEMS_PER_PAGE,
             [
-                'sortFieldAllowList' => ['task.id', 'task.createdAt', 'task.updatedAt', 'task.title'],
+                'sortFieldAllowList' => ['task.id', 'task.createdAt', 'task.updatedAt', 'task.title', 'category.title'],
                 'defaultSortFieldName' => 'task.updatedAt',
                 'defaultSortDirection' => 'desc',
             ]
