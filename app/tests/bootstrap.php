@@ -11,5 +11,5 @@ if (file_exists(dirname(__DIR__) . '/config/bootstrap.php')) {
 }
 
 passthru('clear');
-passthru('./bin/console --env=test doctrine:schema:drop --full-database --force');
-passthru('./bin/console --env=test --no-interaction doctrine:migrations:migrate');
+passthru('./bin/console doctrine:schema:drop --full-database --force');
+passthru('./bin/console --no-interaction doctrine:migrations:migrate');

@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "doctrine/doctrine-migrations-bundle": "^3.4",
         "knplabs/knp-paginator-bundle": "6.7",
+        "stof/doctrine-extensions-bundle": "^1.13",
         "symfony/console": "6.4.*",
         "symfony/dotenv": "6.4.*",
         "symfony/flex": "^2",
@@ -16,8 +17,10 @@
         "symfony/framework-bundle": "6.4.*",
         "symfony/http-client": "6.4.*",
         "symfony/runtime": "6.4.*",
+        "symfony/security-bundle": "6.4.*",
         "symfony/translation": "6.4.*",
         "symfony/twig-bundle": "6.4.*",
+        "symfony/validator": "6.4.*",
         "symfony/yaml": "6.4.*",
         "twig/extra-bundle": "^3.20",
         "twig/intl-extra": "^3.20"
@@ -72,10 +75,6 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "init-app" : [
-            "./bin/console --no-interaction doctrine:migrations:migrate",
-            "./bin/console --no-interaction doctrine:fixtures:load"
-        ],
         "mig" : [
             "rm -rf migrations/*",
             "./bin/console --no-interaction doctrine:schema:drop --force",
@@ -89,7 +88,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "6.4.*"
         }
     }

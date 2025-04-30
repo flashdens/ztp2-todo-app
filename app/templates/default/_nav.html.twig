@@ -1,0 +1,28 @@
+<nav>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div>Hello {{ app.user.email }}</div>
+        <div>
+            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+        </div>
+    {% endif %}
+
+
+    <a class="mr-2" href="{{ url('task_index') }}" title="{{ 'label.task_list'|trans }}">
+        {{ 'label.task_list'|trans }}
+    </a>
+
+
+    <a class="mx-2" href="{{ url('category_index') }}" title="{{ 'label.category_list'|trans }}">
+        {{ 'label.category_list'|trans }}
+    </a>
+
+
+    <a class="mx-2" href="{{ url('note_index') }}" title="{{ 'label.note_list'|trans }}">
+        {{ 'label.note_list'|trans }}
+    </a>
+</nav>
