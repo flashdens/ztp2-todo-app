@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Task service interface.
  */
 
 namespace App\Service;
 
-use App\Entity\Task;
 use App\Entity\Category;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 

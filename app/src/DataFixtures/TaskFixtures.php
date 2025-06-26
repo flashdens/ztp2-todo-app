@@ -8,7 +8,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Task;
-use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
@@ -43,6 +42,7 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $task->setUpdatedAt(
                 \DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days'))
             );
+
             return $task;
         });
     }

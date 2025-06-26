@@ -1,13 +1,23 @@
 <?php
 
+/**
+ * @license MIT
+ */
+
 namespace App\Tests;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/**
+ * Functional tests for the login controller.
+ */
 class LoginControllerTest extends WebTestCase
 {
+    /**
+     * Setup test environment before each test.
+     */
     protected function setUp(): void
     {
         $this->client = static::createClient();
@@ -27,13 +37,16 @@ class LoginControllerTest extends WebTestCase
         $passwordHasher = $container->get('security.user_password_hasher');
 
         $user = new User();
-        $user->setEmail("email@example.com");
+        $user->setEmail('email@example.com');
         $user->setPassword($passwordHasher->hashPassword($user, 'password'));
         $user->setRoles(['ROLE_ADMIN']);
         $em->persist($user);
         $em->flush();
     }
 
+    /**
+     * Test login functionality including valid and invalid credentials.
+     */
     public function testLogin(): void
     {
         // Denied - Can't login with invalid email address.

@@ -39,15 +39,15 @@ class CategoryRepository extends ServiceEntityRepository
     }
 
     /**
-    * Save entity.
-    *
-    * @param Category $category Category entity
-    */
-   public function save(Category $category): void
-   {
-       $this->getEntityManager()->persist($category);
-       $this->getEntityManager()->flush();
-   }
+     * Save entity.
+     *
+     * @param Category $category Category entity
+     */
+    public function save(Category $category): void
+    {
+        $this->getEntityManager()->persist($category);
+        $this->getEntityManager()->flush();
+    }
 
     /**
      * Delete entity.

@@ -1,0 +1,38 @@
+
+Fixed 0 of 29 files in 0.389 seconds, 18.00 MB memory used
+
+Fixed 0 of 9 files in 0.124 seconds, 18.00 MB memory used
+WARNING: The Symfony standard uses 1 deprecated sniff
+-------------------------------------------------------------------------------
+-  Generic.Functions.CallTimePassByReference
+   This sniff has been deprecated since v3.12.1 and will be removed in v4.0.0.
+
+Deprecated sniffs are still run, but will stop working at some point in the future.
+
+WARNING: The Symfony standard uses 1 deprecated sniff
+-------------------------------------------------------------------------------
+-  Generic.Functions.CallTimePassByReference
+   This sniff has been deprecated since v3.12.1 and will be removed in v4.0.0.
+
+Deprecated sniffs are still run, but will stop working at some point in the future.
+
+ ------- -------- ---- ---------------------- 
+  State   Domain   Id   Message Preview (en)  
+ ------- -------- ---- ---------------------- 
+
+ ------- -------- ---- ---------------------- ------------------------------- 
+  State   Domain   Id   Message Preview (pl)   Fallback Message Preview (en)  
+ ------- -------- ---- ---------------------- ------------------------------- 
+
+[notice] Migrating up to DoctrineMigrations\Version20250626225207
+[notice] finished in 174.7ms, used 18M memory, 1 migrations executed, 6 sql queries
+
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20250626225207                                        
+
+
+   > purging database
+   > loading App\DataFixtures\AppFixtures
+   > loading App\DataFixtures\CategoryFixtures
+   > loading App\DataFixtures\UserFixtures
+   > loading App\DataFixtures\NoteFixtures
+   > loading App\DataFixtures\TaskFixtures

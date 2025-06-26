@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Category service tests.
+ * @licence MIT
  */
 
 namespace App\Tests\Service;
@@ -52,7 +53,7 @@ class CategoryServiceTest extends KernelTestCase
     {
         // given
         $expectedCategory = new Category();
-        $expectedCategory->setTitle('Test Category');
+        $expectedCategory->setTitle('Test category');
 
         // when
         $this->categoryService->save($expectedCategory);
@@ -79,7 +80,7 @@ class CategoryServiceTest extends KernelTestCase
     {
         // given
         $categoryToDelete = new Category();
-        $categoryToDelete->setTitle('Test Category');
+        $categoryToDelete->setTitle('Test category');
         $this->entityManager->persist($categoryToDelete);
         $this->entityManager->flush();
         $deletedCategoryId = $categoryToDelete->getId();
@@ -112,7 +113,7 @@ class CategoryServiceTest extends KernelTestCase
         $counter = 0;
         while ($counter < $dataSetSize) {
             $category = new Category();
-            $category->setTitle('Test Category #'.$counter);
+            $category->setTitle('Test category #'.$counter);
             $this->categoryService->save($category);
 
             ++$counter;

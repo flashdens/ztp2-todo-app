@@ -8,7 +8,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Note;
-use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
@@ -38,11 +37,12 @@ class NoteFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $category = $this->getRandomReference('category', Category::class);
             $note->setCategory($category);
             $note->setCreatedAt(
-                DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days'))
+                \DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days'))
             );
             $note->setUpdatedAt(
-                DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days'))
+                \DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days'))
             );
+
             return $note;
         });
     }

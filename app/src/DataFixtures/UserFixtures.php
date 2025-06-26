@@ -41,20 +41,6 @@ class UserFixtures extends AbstractBaseFixtures
             return;
         }
 
-        $this->createMany(10, 'user', function (int $i) {
-            $user = new User();
-            $user->setEmail(sprintf('user%d@example.com', $i));
-            $user->setRoles([UserRole::ROLE_USER->value]);
-            $user->setPassword(
-                $this->passwordHasher->hashPassword(
-                    $user,
-                    'user1234'
-                )
-            );
-
-            return $user;
-        });
-
         $this->createMany(3, 'admin', factory: function (int $i = 10) {
             $user = new User();
             $user->setEmail(sprintf('admin%d@example.com', $i));

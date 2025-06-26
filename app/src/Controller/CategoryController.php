@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Form\Type\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Translation\TranslatorInterface;
+
 /**
  * Class CategoryController.
  */
@@ -26,6 +27,7 @@ class CategoryController extends AbstractController
      * Constructor.
      *
      * @param CategoryServiceInterface $categoryService Category service
+     * @param TranslatorInterface      $translator      Trabskatir
      */
     public function __construct(private readonly CategoryServiceInterface $categoryService, private readonly TranslatorInterface $translator)
     {
@@ -70,7 +72,7 @@ class CategoryController extends AbstractController
         );
     }
 
-       /**
+    /**
      * Create action.
      *
      * @param Request $request HTTP request
@@ -103,7 +105,7 @@ class CategoryController extends AbstractController
             'category/create.html.twig',
             ['form' => $form->createView()]
         );
-    } 
+    }
 
     /**
      * Edit action.
@@ -151,7 +153,7 @@ class CategoryController extends AbstractController
         );
     }
 
-       /**
+    /**
      * Delete action.
      *
      * @param Request  $request  HTTP request

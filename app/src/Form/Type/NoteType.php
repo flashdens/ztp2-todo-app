@@ -45,7 +45,7 @@ class NoteType extends AbstractType
         );
         $builder->add(
             'text',
-           TextareaType::class,
+            TextareaType::class,
             [
                 'label' => 'label.text',
                 'required' => true,
