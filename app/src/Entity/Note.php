@@ -7,6 +7,7 @@
 namespace App\Entity;
 
 use App\Repository\NoteRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -32,16 +33,16 @@ class Note
      */
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     #[Gedmo\Timestampable(on: 'create')]
-    #[Assert\Type(\DateTimeImmutable::class)]
-    private ?\DateTimeImmutable $createdAt = null;
+    #[Assert\Type(DateTimeImmutable::class)]
+    private ?DateTimeImmutable $createdAt = null;
 
     /**
      * Last updated datetime of the note.
      */
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     #[Gedmo\Timestampable(on: 'update')]
-    #[Assert\Type(\DateTimeImmutable::class)]
-    private ?\DateTimeImmutable $updatedAt = null;
+    #[Assert\Type(DateTimeImmutable::class)]
+    private ?DateTimeImmutable $updatedAt = null;
 
     /**
      * Title of the note.
@@ -80,9 +81,9 @@ class Note
     /**
      * Gets the creation datetime.
      *
-     * @return \DateTimeImmutable|null the datetime when the note was created
+     * @return DateTimeImmutable|null the datetime when the note was created
      */
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -90,11 +91,11 @@ class Note
     /**
      * Sets the creation datetime.
      *
-     * @param \DateTimeImmutable $createdAt the datetime to set
+     * @param DateTimeImmutable $createdAt the datetime to set
      *
      * @return static returns itself for method chaining
      */
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setCreatedAt(DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
 
@@ -104,9 +105,9 @@ class Note
     /**
      * Gets the last updated datetime.
      *
-     * @return \DateTimeImmutable|null the datetime when the note was last updated
+     * @return DateTimeImmutable|null the datetime when the note was last updated
      */
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -114,11 +115,11 @@ class Note
     /**
      * Sets the last updated datetime.
      *
-     * @param \DateTimeImmutable $updatedAt the datetime to set
+     * @param DateTimeImmutable $updatedAt the datetime to set
      *
      * @return static returns itself for method chaining
      */
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    public function setUpdatedAt(DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
 

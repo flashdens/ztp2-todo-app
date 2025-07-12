@@ -198,6 +198,26 @@
        <source>label.note_list</source>
        <target>Note list</target>
      </trans-unit>
+    <trans-unit id="message.change_password">
+      <source>message.change_password</source>
+      <target>Change password</target>
+    </trans-unit>
+    <trans-unit id="label.tasks">
+      <source>label.tasks</source>
+      <target>Tasks</target>
+    </trans-unit>
+    <trans-unit id="action.show">
+      <source>action.show</source>
+      <target>Show</target>
+    </trans-unit>
+    <trans-unit id="label.notes">
+      <source>label.notes</source>
+      <target>Notes</target>
+    </trans-unit>
+    <trans-unit id="action.change_password">
+      <source>action.change_password</source>
+      <target>Change password</target>
+    </trans-unit>
     </body>
   </file>
 </xliff>
