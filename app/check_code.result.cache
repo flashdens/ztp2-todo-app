@@ -1,33 +1,34 @@
+   1) src/Controller/SecurityController.php (phpdoc_align)
+   2) src/Form/Type/ChangePasswordType.php (phpdoc_annotation_without_dot, no_superfluous_phpdoc_tags, phpdoc_trim, phpdoc_align)
+   3) src/Service/CategoryService.php (braces_position)
 
-Fixed 0 of 29 files in 0.389 seconds, 18.00 MB memory used
+Fixed 3 of 30 files in 0.409 seconds, 18.00 MB memory used
 
-Fixed 0 of 9 files in 0.124 seconds, 18.00 MB memory used
-WARNING: The Symfony standard uses 1 deprecated sniff
--------------------------------------------------------------------------------
--  Generic.Functions.CallTimePassByReference
-   This sniff has been deprecated since v3.12.1 and will be removed in v4.0.0.
+Fixed 0 of 9 files in 0.126 seconds, 18.00 MB memory used
+ ----------- ---------- ------------------------- ------------------------- 
+  State       Domain     Id                        Message Preview (en)     
+ ----------- ---------- ------------------------- ------------------------- 
+   missing    messages   message.change_password   message.change_password  
+   missing    messages   label.tasks               label.tasks              
+   missing    messages   action.show               action.show              
+   missing    messages   label.notes               label.notes              
+   missing    messages   action.change_password    action.change_password   
+ ----------- ---------- ------------------------- ------------------------- 
 
-Deprecated sniffs are still run, but will stop working at some point in the future.
+ ----------- ---------- ------------------------- ------------------------- ------------------------------- 
+  State       Domain     Id                        Message Preview (pl)      Fallback Message Preview (en)  
+ ----------- ---------- ------------------------- ------------------------- ------------------------------- 
+   missing    messages   message.change_password   message.change_password   message.change_password        
+   missing    messages   label.tasks               label.tasks               label.tasks                    
+   missing    messages   action.show               action.show               action.show                    
+   missing    messages   label.notes               label.notes               label.notes                    
+   missing    messages   action.change_password    action.change_password    action.change_password         
+ ----------- ---------- ------------------------- ------------------------- ------------------------------- 
 
-WARNING: The Symfony standard uses 1 deprecated sniff
--------------------------------------------------------------------------------
--  Generic.Functions.CallTimePassByReference
-   This sniff has been deprecated since v3.12.1 and will be removed in v4.0.0.
+[notice] Migrating up to DoctrineMigrations\Version20250709154908
+[notice] finished in 181.4ms, used 18M memory, 1 migrations executed, 6 sql queries
 
-Deprecated sniffs are still run, but will stop working at some point in the future.
-
- ------- -------- ---- ---------------------- 
-  State   Domain   Id   Message Preview (en)  
- ------- -------- ---- ---------------------- 
-
- ------- -------- ---- ---------------------- ------------------------------- 
-  State   Domain   Id   Message Preview (pl)   Fallback Message Preview (en)  
- ------- -------- ---- ---------------------- ------------------------------- 
-
-[notice] Migrating up to DoctrineMigrations\Version20250626225207
-[notice] finished in 174.7ms, used 18M memory, 1 migrations executed, 6 sql queries
-
- [OK] Successfully migrated to version: DoctrineMigrations\Version20250626225207                                        
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20250709154908                                        
 
 
    > purging database

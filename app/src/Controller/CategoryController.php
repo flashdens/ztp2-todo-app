@@ -66,9 +66,12 @@ class CategoryController extends AbstractController
     )]
     public function view(Category $category): Response
     {
+        $tasks = $this->categoryService->getTasksByCategory($category);
+        $notes = $this->categoryService->getNotesByCategory($category);
+
         return $this->render(
             'category/view.html.twig',
-            ['category' => $category]
+            ['category' => $category, 'tasks' => $tasks, 'notes' => $notes]
         );
     }
 

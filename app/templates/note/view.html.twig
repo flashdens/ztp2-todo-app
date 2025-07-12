@@ -12,12 +12,12 @@
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
             <dd>{{ note.id }}</dd>
-            <dt>{{ 'label.created_at'|trans }}</dt>
-            <dd>{{ note.createdAt|date('Y/m/d') }}</dd>
-            <dt>{{ 'label.updated_at'|trans }}</dt>
-            <dd>{{ note.updatedAt|date('Y/m/d') }}</dd>
             <dt>{{ 'label.title'|trans }}</dt>
             <dd>{{  note.title }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ note.createdAt|format_datetime('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ note.updatedAt|format_datetime('long') }}</dd>
             <dt>{{ 'label.text'|trans }}</dt>
             <dd>{{  note.text }}</dd>
             <dt>{{ 'label.category'|trans }}</dt>

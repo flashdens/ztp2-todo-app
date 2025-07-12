@@ -8,6 +8,7 @@ namespace App\Service;
 
 use App\Repository\CategoryRepository;
 use App\Entity\Category;
+use App\Repository\NoteRepository;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -25,19 +26,18 @@ class CategoryService implements CategoryServiceInterface
      * Use constants to define configuration options that rarely change instead
      * of specifying them in app/config/config.yml.
      * See https://symfony.com/doc/current/best_practices.html#configuration
-     *
-     * @constant int
      */
-    private const PAGINATOR_ITEMS_PER_PAGE = 10;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
      * Constructor.
      *
      * @param CategoryRepository $categoryRepository Category repository
      * @param TaskRepository     $taskRepository     Task repository
+     * @param NoteRepository     $noteRepository     Note repository
      * @param PaginatorInterface $paginator          Paginator
      */
-    public function __construct(private readonly CategoryRepository $categoryRepository, private readonly TaskRepository $taskRepository, private readonly PaginatorInterface $paginator)
+    public function __construct(private readonly CategoryRepository $categoryRepository, private readonly TaskRepository $taskRepository, private readonly NoteRepository $noteRepository, private readonly PaginatorInterface $paginator)
     {
     }
 
@@ -55,7 +55,7 @@ class CategoryService implements CategoryServiceInterface
             $page,
             self::PAGINATOR_ITEMS_PER_PAGE,
             [
-                'sortFieldAllowList' => ['category.id', 'category.createdAt', 'category.updatedAt', 'category.title', 'category.title'],
+                'sortFieldAllowList' => ['category.id', 'category.createdAt', 'category.updatedAt', 'category.title'],
                 'defaultSortFieldName' => 'category.updatedAt',
                 'defaultSortDirection' => 'desc',
             ]
@@ -98,5 +98,39 @@ class CategoryService implements CategoryServiceInterface
         } catch (NoResultException|NonUniqueResultException) {
             return false;
         }
+    }
+
+    /**
+     * Get a paginated list of tasks for a category.
+     *
+     * @param Category $category Category entity
+     * @param int      $page     Page number
+     *
+     * @return PaginationInterface Paginated list of tasks
+     */
+    public function getTasksByCategory(Category $category, int $page = 1): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->taskRepository->findBy(['category' => $category]),
+            $page,
+            self::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
+    /**
+     * Get a paginated list of notes for a category.
+     *
+     * @param Category $category Category entity
+     * @param int      $page     Page number
+     *
+     * @return PaginationInterface Paginated list of notes
+     */
+    public function getNotesByCategory(Category $category, int $page = 1): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->noteRepository->findBy(['category' => $category]),
+            $page,
+            self::PAGINATOR_ITEMS_PER_PAGE
+        );
     }
 }
